@@ -18,13 +18,7 @@ spec:
           imagePullPolicy: Always
           env:
             - name: AZP_AGENT_NAME
-              value: setup-template
-            - name: AZP_URL
-              value: https://dev.azure.com/<org>
-            - name: AZP_TOKEN
-              valueFrom:
-                secretKeyRef:
-                  name: pipeline-auth
-                  key: personalAccessToken
-            # - name: AZP_POOL
-            #   value: Default  # same as in the ScaledJob
+              value: setup-template  # needs to include "template"
+          envFrom:
+            - secretRef:
+                name: pipeline-auth

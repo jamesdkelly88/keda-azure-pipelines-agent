@@ -23,16 +23,9 @@ spec:
             # don't forget the mentioned script change as well as mine
             image: lippertmarkus/azure-pipelines-agent:latest
             imagePullPolicy: Always
-            env:
-              - name: AZP_URL
-                value: https://dev.azure.com/<org>
-              - name: AZP_TOKEN
-                valueFrom:
-                  secretKeyRef:
-                    name: pipeline-auth
-                    key: personalAccessToken
-              # - name: AZP_POOL
-              #   value: Default  # same as below
+            envFrom:
+              - secretRef:
+                  name: pipeline-auth
   pollingInterval: 10
   successfulJobsHistoryLimit: 5
   failedJobsHistoryLimit: 5
