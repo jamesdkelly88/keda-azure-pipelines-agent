@@ -10,7 +10,6 @@ spec:
         poolName: "Default"
         organizationURLFromEnv: "AZP_URL"
         personalAccessTokenFromEnv: "AZP_TOKEN"
-        parent: setup-template  # agent name of the dummy agent we need to register (and shutdown afterwards) so that at least one agent is in the pool
   jobTargetRef:
     activeDeadlineSeconds: 14400  # 4h
     # backOffLimit: 0  # works with newer KEDA versions
