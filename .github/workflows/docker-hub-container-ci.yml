@@ -26,11 +26,10 @@ jobs:
         uses: docker/build-push-action@3b5e8027fcad23fda98b2e3ac259d8d67585f671
         with:
           context: ./container-image
-          file: ./container-image/Dockerfile
+          file: ./container-image/container.Dockerfile
           push: true
           tags: |
-           ${{ env.DOCKER_USERNAME }}/${{ env.DOCKER_IMAGE }}:latest
-           ${{ env.DOCKER_USERNAME }}/${{ env.DOCKER_IMAGE }}:standard
-           ${{ env.DOCKER_USERNAME }}/${{ env.DOCKER_IMAGE }}:standard-jammy
-           ${{ env.DOCKER_USERNAME }}/${{ env.DOCKER_IMAGE }}:standard-${{ github.sha }}
-
+           ${{ env.DOCKER_USERNAME }}/${{ env.DOCKER_IMAGE }}:container
+           ${{ env.DOCKER_USERNAME }}/${{ env.DOCKER_IMAGE }}:container-jammy
+           ${{ env.DOCKER_USERNAME }}/${{ env.DOCKER_IMAGE }}:container-${{ github.sha }}
+           
