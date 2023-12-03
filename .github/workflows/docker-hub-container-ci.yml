@@ -1,4 +1,4 @@
-name: Docker Hub Standard Image CI
+name: Docker Hub Container Image CI
 
 on:
   push:
