@@ -7,6 +7,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y -qq --no-install-recommend
     apt-utils \
     ca-certificates \
     curl \
+    fuse-overlayfs \
     git \
     iputils-ping \
     jq \
@@ -23,6 +24,8 @@ RUN curl -sL https://aka.ms/InstallAzureCLIDeb | bash
 ENV TARGETARCH=linux-x64
 
 WORKDIR /azp
+
+VOLUME /var/lib/containers
 
 COPY ./start.sh .
 RUN chmod +x start.sh
